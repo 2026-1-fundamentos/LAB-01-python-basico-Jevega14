@@ -5,6 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from ._data import read_rows
+
 
 def pregunta_05():
     """
@@ -15,3 +17,7 @@ def pregunta_05():
     [('A', 9, 2), ('B', 9, 1), ('C', 9, 0), ('D', 8, 3), ('E', 9, 1)]
 
     """
+    values = {}
+    for row in read_rows():
+        values.setdefault(row[0], []).append(int(row[1]))
+    return [(letter, max(nums), min(nums)) for letter, nums in sorted(values.items())]

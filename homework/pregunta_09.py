@@ -5,6 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from ._data import read_rows
+
 
 def pregunta_09():
     """
@@ -24,3 +26,9 @@ def pregunta_09():
      'jjj': 18}}
 
     """
+    counts = {}
+    for row in read_rows():
+        for item in row[4].split(","):
+            key = item.split(":")[0]
+            counts[key] = counts.get(key, 0) + 1
+    return dict(sorted(counts.items()))

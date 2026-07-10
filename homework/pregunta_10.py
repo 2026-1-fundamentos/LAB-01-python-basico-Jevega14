@@ -5,6 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from ._data import read_rows
+
 
 def pregunta_10():
     """
@@ -20,3 +22,7 @@ def pregunta_10():
 
 
     """
+    return [
+        (row[0], len(row[3].split(",")), len(row[4].split(",")))
+        for row in read_rows()
+    ]

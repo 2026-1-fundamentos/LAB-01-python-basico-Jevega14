@@ -5,6 +5,8 @@ solo puede utilizar las funciones y librerias basicas de python. No puede
 utilizar pandas, numpy o scipy.
 """
 
+from ._data import read_rows
+
 
 def pregunta_01():
     """
@@ -14,3 +16,4 @@ def pregunta_01():
     214
 
     """
+    return sum(int(row[1]) for row in read_rows())
